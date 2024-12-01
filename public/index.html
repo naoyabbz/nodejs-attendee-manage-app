@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>QR Code Scanner with Database</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>QR Code Scanner with Database</h1>
+    <button id="startButton">Start QR Code Scan</button>
+    <div id="qr-reader"></div>
+    <p id="result"></p>
+
     <div class="table-wrapper">
         <table class="custom-table">
             <!-- テーブルヘッダー -->
@@ -23,13 +28,9 @@
             </tbody>
         </table>
     </div>
-    <form class="form-section">
-        <p>Input </p>
-        <textarea id="inputContent" rows="5" cols="60"></textarea><br>
-        <button id="submitButton" type="submit">Submit</button>        
-    </form>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html5-qrcode/minified/html5-qrcode.min.js"></script>
     <script src="script.js"></script>    
 </body>
 </html>
