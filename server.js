@@ -45,3 +45,18 @@ app.post("/api/v1/lists/updateStatus", async(req, res)=>{
 });
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+
+app.post("/api/v1/lists/resetStatus", async (req, res) => {
+    try {
+        // すべてのドキュメントのstatusを"-"に更新
+        const result = await List.updateMany({}, { $set: { Status: "-" } });
+
+        res.status(200).json({
+            message: "All statuses reset to '-'",
+            modifiedCount: result.modifiedCount, // 更新されたドキュメントの数
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Failed to reset statuses" });
+    }
+});
